@@ -1,123 +1,100 @@
-# 💡 Project Scope Summary
+# Gemini AI Chatbot with DevOps Implementation
 
-## 🎯 Goal
-Deploy a **medical Q&A chatbot** powered by an AI model using modern **DevOps tools** and **Azure infrastructure**.
+## Project Overview
+This project implements a medical chatbot with a complete DevOps pipeline, focusing on scalability, reliability, and maintainable infrastructure. The chatbot is designed to handle medical questions using advanced AI models and is deployed using modern DevOps practices.
 
----
+## Prerequisites
+- Python 3.8+
+- VS Code or PyCharm
+- Docker Desktop
+- Azure CLI
+- Terraform
+- kubectl
+- Helm
 
-## 🧩 You Will Cover
+## Project Structure
 
-### 📦 Infrastructure as Code (IaC)
-- Use tools like **Terraform** and **ARM templates** to provision and manage Azure resources programmatically.
+### Phase 1: Local Development
+- Basic chatbot implementation
+- Choice of frameworks:
+  - Flask (simple and straightforward)
+  - FastAPI (modern, async capabilities)
+- AI Model Integration Options:
+  - Hugging Face's BioBERT (free, local deployment)
+  - OpenAI API (paid service)
+  - Google's MedAlpaca (open-source medical model)
 
-### 🐳 Containerization
-- Package the chatbot and its services using **Docker** to ensure portability and consistency across environments.
+### Phase 2: Database Integration
+- PostgreSQL database implementation
+- Schema design for:
+  - Question/Answer history tracking
+  - Usage metrics collection
+  - Error logging
 
-### ☸️ Orchestration
-- Deploy and manage containers using **Kubernetes (AKS)** for high availability, load balancing, and scalability.
+### Phase 3: Containerization
+- Docker implementation with multi-stage builds
+- Container optimization
+- Health check implementation
+- Docker Compose for local development
 
-### ⚙️ Configuration Management
-- Implement tools like **Ansible** or **Helm** to automate environment setups and manage configuration drift.
+### Phase 4: Cloud Infrastructure
+- Azure infrastructure setup using Terraform
+- Key components:
+  - Azure Kubernetes Service (AKS)
+  - Azure Container Registry (ACR)
+  - Azure Database for PostgreSQL
+  - Virtual Network
+  - Log Analytics Workspace
 
-### 📈 Monitoring
-- Set up observability with tools like **Prometheus**, **Grafana**, and **Azure Monitor** to track performance and health metrics.
+### Phase 5: Kubernetes Deployment
+- Kubernetes resource configuration
+- Helm chart creation
+- Auto-scaling setup
+- Health monitoring implementation
 
-### 🔁 CI/CD Pipelines
-- Automate testing, integration, and deployment using **Azure DevOps**, **GitHub Actions**, or **Jenkins**.
+### Phase 6: Monitoring Implementation
+- Prometheus metrics collection
+- Grafana dashboards
+- Alert Manager configuration
+- Loki log aggregation
 
-### ☁️ Cloud Provisioning
-- Leverage **Azure Resource Manager (ARM)** and **Terraform** to spin up infrastructure tailored to the chatbot’s needs.
+### Phase 7: CI/CD Pipeline
+- Automated deployment pipeline
+- Security scanning
+- Multiple environment support
+- Automated testing
 
-### 🔐 Security & Scalability
-- Enforce **RBAC**, **network policies**, **TLS**, and **firewalls** to secure services.
-- Use **Horizontal Pod Autoscaling**, **Load Balancers**, and **CDNs** for scalable and responsive applications.
+### Phase 8: Configuration Management
+- Ansible automation
+- Security hardening
+- Monitoring setup
+- Backup procedures
 
----
+## Getting Started
+1. Clone this repository
+2. Install the required prerequisites
+3. Follow the setup instructions in deployment.md
+4. Run the local development environment
 
-🛠️ This project is perfect for gaining hands-on experience with full DevOps pipelines and cloud-native application deployment!
+## Development Progress
+- [ ] Phase 1: Local Development Setup
+- [ ] Phase 2: Database Integration
+- [ ] Phase 3: Containerization
+- [ ] Phase 4: Cloud Infrastructure
+- [ ] Phase 5: Kubernetes Setup
+- [ ] Phase 6: Monitoring Stack
+- [ ] Phase 7: CI/CD Pipeline
+- [ ] Phase 8: Ansible Automation
 
+## Production Readiness Checklist
+- [ ] High Availability Configuration
+- [ ] Backup and Restore Procedures
+- [ ] Disaster Recovery Plan
+- [ ] Security Compliance
+- [ ] Complete Documentation
 
-
-🧠 Step 1: Define Core Components
-Here’s the core flow of your chatbot project:
-
-🔄 System Flow:
-User sends a medical question via frontend (web or Postman).
-
-Request hits a Python FastAPI service running in Kubernetes.
-
-The API calls Google Gemini to get the answer.
-
-API saves the Q&A to PostgreSQL database.
-
-You use CI/CD to build & deploy the app.
-
-Prometheus + Grafana monitor the app.
-
-Infra is managed via Terraform, Helm, Docker, Ansible on Azure.
-
-🧱 Step 2: List Your Components
-Layer	Component
-AI	Google Gemini API
-Backend	Python (FastAPI or Flask)
-Container	Docker
-Orchestration	Kubernetes (AKS) + Helm
-Infra as Code	Terraform (to provision AKS, PostgreSQL, ACR)
-DB	PostgreSQL (Azure Database or self-hosted)
-Monitoring	Prometheus + Grafana
-Config Mgmt	Ansible
-CI/CD	GitHub Actions or Azure DevOps Pipelines
-Hosting	Azure
-
-
-![ChatGPT Image](link_to_chatgpt_image)
-
-
-
-
-
-
-
----------------------------------------------------
-
-
-
-
-✅ Phase 2 Goal
-Create a working chatbot on your local machine that:
-
-Accepts medical questions via an HTTP endpoint
-
-Sends them to Google Gemini
-
-Returns the answer
-
-Optionally logs questions/answers in a database (we’ll use SQLite first)
-
-🧱 App Architecture Overview
-Tech Stack:
-
-Flask: lightweight Python web framework (REST API)
-
-Google Gemini API: for intelligent medical responses
-
-SQLite: simple database to log questions/responses
-
-🧭 App Flow:
-pgsql
-Copy code
-User → /ask endpoint → Flask App → Google Gemini → Response → User
-                                        ↘︎ Save to DB
-🪜 Step-by-Step Breakdown
-🔹 1. Setup Your Project
-Project Structure:
-
-graphql
-Copy code
-chatbot-app/
-│
-├── app.py                 # Flask app
-├── gemini_client.py       # Google Gemini API logic
-├── database.py            # SQLite logic
-├── requirements.txt       # Python dependencies
-└── .env                   # API keys and config
+## Security Considerations
+- Proper RBAC implementation
+- Network security policies
+- Secret management
+- Regular security scanning
